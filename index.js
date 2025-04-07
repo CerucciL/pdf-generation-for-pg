@@ -5,7 +5,7 @@ const admin = require("firebase-admin");
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
-const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT_KEY_JSON);
+const serviceAccount = require("./serviceAccount.json");
 
 
 admin.initializeApp({

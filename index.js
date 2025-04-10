@@ -1,7 +1,5 @@
 const express = require("express");
 const admin = require("firebase-admin");
-const fs = require("fs");
-const path = require("path");
 const { PDFDocument, StandardFonts } = require("pdf-lib");
 const serviceAccount = require("./firebaseKey.json");
 
@@ -96,9 +94,9 @@ async function gerarPDF(res, nomeArquivo, dados) {
   }
 
   const pdfBytes = await pdfDoc.save();
-  const filePath = path.join(__dirname, nomeArquivo);
-  fs.writeFileSync(filePath, pdfBytes);
-  res.download(filePath);
+  res.setHeader("Content-Type", "application/pdf");
+  res.setHeader("Content-Disposition", `attachment; filename=${nomeArquivo}`);
+  res.send(pdfBytes);
 }
 
 app.get("/relatorio", async (req, res) => {

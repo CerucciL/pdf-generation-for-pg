@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "node index.js"
-}
-,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "deploy": "wrangler deploy"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CerucciL/PDF-Generation-for-PG.git"
@@ -27,5 +27,8 @@
     "pdfkit": "^0.16.0",
     "playwright": "^1.51.1",
     "puppeteer": "^24.4.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.9.1"
   }
 }
